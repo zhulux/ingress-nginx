@@ -13,21 +13,21 @@
 # limitations under the License.
 
 
-FROM BASEIMAGE
+FROM quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.12.0
 
-CROSS_BUILD_COPY qemu-ARCH-static /usr/bin/
-
-COPY build.sh install_lua_resty_waf.sh /
-
-RUN clean-install bash
-
-RUN /build.sh
-
-# Create symlinks to redirect nginx logs to stdout and stderr docker log collector
-# This only works if nginx is started with CMD or ENTRYPOINT
-RUN ln -sf /dev/stdout /var/log/nginx/access.log
-RUN ln -sf /dev/stderr /var/log/nginx/error.log
-
-EXPOSE 80 443
-
-CMD ["nginx", "-g", "daemon off;"]
+#CROSS_BUILD_COPY qemu-ARCH-static /usr/bin/
+#
+#COPY build.sh install_lua_resty_waf.sh /
+#
+#RUN clean-install bash
+#
+#RUN /build.sh
+#
+## Create symlinks to redirect nginx logs to stdout and stderr docker log collector
+## This only works if nginx is started with CMD or ENTRYPOINT
+#RUN ln -sf /dev/stdout /var/log/nginx/access.log
+#RUN ln -sf /dev/stderr /var/log/nginx/error.log
+#
+#EXPOSE 80 443
+#
+#CMD ["nginx", "-g", "daemon off;"]

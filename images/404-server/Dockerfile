@@ -12,9 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM scratch
+#FROM scratch
+#
+##   nobody:nobody
+#USER 65534:65534
+#COPY server /
+#ENTRYPOINT ["/server"]
 
-#   nobody:nobody
-USER 65534:65534
-COPY server /
-ENTRYPOINT ["/server"]
+FROM k8s.gcr.io/defaultbackend:1.3
