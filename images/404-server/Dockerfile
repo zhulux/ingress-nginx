@@ -19,4 +19,6 @@
 #COPY server /
 #ENTRYPOINT ["/server"]
 
-FROM k8s.gcr.io/defaultbackend:1.3
+# FROM k8s.gcr.io/defaultbackend:1.3
+# GREATWALL `_`
+FROM registry.astarup.com/devops/defaultbackend:1.3
